@@ -1,4 +1,4 @@
-package com.MakerSharksSearchAPI.MakerSharksSearchAPI.Model;
+package com.MakerSharksSearchAPI.MakerSharksSearchAPI.Entity;
 
 
 import jakarta.persistence.Entity;

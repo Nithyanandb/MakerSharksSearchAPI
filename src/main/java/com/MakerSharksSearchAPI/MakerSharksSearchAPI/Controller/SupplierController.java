@@ -1,6 +1,6 @@
 package com.MakerSharksSearchAPI.MakerSharksSearchAPI.Controller;
 
-import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Model.Supplier;
+import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Entity.Supplier;
 import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

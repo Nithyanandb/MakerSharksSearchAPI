@@ -1,6 +1,6 @@
 package com.MakerSharksSearchAPI.MakerSharksSearchAPI.Repository;
 
-import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Model.Supplier;
+import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Entity.Supplier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
