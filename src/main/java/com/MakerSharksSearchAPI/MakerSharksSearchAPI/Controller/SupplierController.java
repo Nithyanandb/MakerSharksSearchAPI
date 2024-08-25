@@ -4,6 +4,9 @@ import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Entity.Supplier;
 import com.MakerSharksSearchAPI.MakerSharksSearchAPI.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,15 +20,36 @@ public class SupplierController {
     private SupplierService supplierService;
 
     @PostMapping("/query")
-    public Page<Supplier> querySuppliers(
+    public ResponseEntity<Page<Supplier>> querySuppliers(
             @RequestBody SupplierQuery query) {
-        return supplierService.searchSuppliers(
-                query.getLocation(),
-                query.getNatureOfBusiness(),
-                query.getManufacturingProcesses(),
-                query.getPage(),
-                query.getSize()
-        );
+        try {
+            System.out.println("Received query: " + query);
+
+            // Validate page and size
+            if (query.getSize() <= 0) {
+                return ResponseEntity.badRequest().body(null);
+            }
+
+            Page<Supplier> suppliers = supplierService.searchSuppliers(
+                    query.getLocation(),
+                    query.getNatureOfBusiness(),
+                    query.getManufacturingProcesses(),
+                    query.getPage(),
+                    query.getSize()
+            );
+            return ResponseEntity.ok(suppliers);
+        } catch (Exception e) {
+            // Log the exception
+            System.err.println("Error occurred: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception e) {
+        // Log the exception
+        System.err.println("Exception: " + e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred: " + e.getMessage());
     }
 
     public static class SupplierQuery {
@@ -35,8 +59,7 @@ public class SupplierController {
         private int page;
         private int size;
 
-        // Getters and setters
-
+        // Getters and Setters
         public String getLocation() {
             return location;
         }
