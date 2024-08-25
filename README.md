@@ -23,15 +23,9 @@ The Makersharks Search API is a Spring Boot application designed to help users f
 - **Entity (`Supplier`):**
   - Represents a supplier in the database with fields such as company name, website, location, nature of business, and manufacturing processes.
 
-- **DTO (`SupplierQueryDTO`):**
-  - A Data Transfer Object used for validating and transferring query parameters.
+- **DAO (`SupplierQueryDAO`):**
+  - A Data Access Object used for validating and transferring query parameters.
   - Includes fields like `location`, `natureOfBusiness`, and `manufacturingProcesses`, with validation annotations.
-
-- **Exception Handling (`GlobalExceptionHandler`):**
-  - Provides custom error responses for validation exceptions and other errors.
-
-- **Swagger Configuration (`SwaggerConfig`):**
-  - Configures Swagger for API documentation, enabling easy testing and exploration of the API.
 
 ## API Endpoints
 
