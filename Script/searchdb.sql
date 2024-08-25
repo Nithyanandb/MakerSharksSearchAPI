@@ -25,72 +25,6 @@ VALUES
     ('Cutting Edge Pvt Ltd', 'http://bangalorecuttingedge.com', 'Bengaluru', 'small_scale', 'cutting');
 
 
-SELECT * FROM supplier WHERE location = 'Bengaluru' AND nature_of_business = 'small_scale' AND manufacturing_processes = 'cutting';
-
-
-
--- Insert record only if it does not already exist
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Moulders Pvt Ltd', 'http://chennaimoulders.com', 'Chennai', 'small_scale', 'moulding'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Moulders Pvt Ltd'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Casting Co.', 'http://mumbaicasting.com', 'Mumbai', 'medium_scale', 'casting'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Casting Co.'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Forging Industries', 'http://delhiforging.com', 'Delhi', 'large_scale', 'forging'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Forging Industries'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Machining Works', 'http://bangaloremachining.com', 'Bengaluru', 'small_scale', 'machining'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Machining Works'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Welders Ltd', 'http://hyderabadwelders.com', 'Hyderabad', 'medium_scale', 'welding'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Welders Ltd'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Pune Assembly Services', 'http://puneassembly.com', 'Pune', 'large_scale', 'assembly'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Pune Assembly Services'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Polishing Experts', 'http://chennaipolishing.com', 'Chennai', 'small_scale', 'polishing'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Polishing Experts'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Testing Solutions', 'http://mumbaitesting.com', 'Mumbai', 'medium_scale', 'testing'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Testing Solutions'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Packaging Corp.', 'http://delhipackaging.com', 'Delhi', 'large_scale', 'packaging'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Packaging Corp.'
-);
-
-INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
-SELECT 'Cutting Edge Pvt Ltd', 'http://bangalorecuttingedge.com', 'Bengaluru', 'small_scale', 'cutting'
-WHERE NOT EXISTS (
-    SELECT 1 FROM Supplier WHERE company_name = 'Cutting Edge Pvt Ltd'
-);
-
-
 INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
 VALUES
     ('Precision Moulders', 'http://precisionmoulders.com', 'Chennai', 'small_scale', 'moulding'),
@@ -104,7 +38,7 @@ VALUES
     ('Top Packaging Ltd', 'http://topackaging.com', 'Delhi', 'large_scale', 'packaging'),
     ('Edge Cutting Services', 'http://edgecuttingservices.com', 'Bengaluru', 'small_scale', 'cutting');
 
--- Additional records
+
 INSERT INTO Supplier (company_name, website, location, nature_of_business, manufacturing_processes)
 VALUES
     ('NextGen Moulders', 'http://nextgenmoulders.com', 'Chennai', 'small_scale', 'moulding'),
